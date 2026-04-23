@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boni Pasta — La buona pasta di Alta Gracia</title>
+<meta name="description" content="Pastas frescas y salsas artesanales en Alta Gracia. Tradición italiana, procesos cuidados, ultracongelado profesional. Una unidad de negocio de Natural Chef.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #1f3864;
+  --navy-deep: #15264a;
+  --navy-soft: #2d4a7a;
+  --cream: #f6f0e4;
+  --cream-warm: #efe6d4;
+  --cream-deep: #e8dcc3;
+  --white: #ffffff;
+  --ink: #1a1a1a;
+  --ink-soft: #4a4a4a;
+  --italy-green: #008C45;
+  --italy-red: #CD212A;
+  --italy-white: #F4F5F0;
+  --line: rgba(31, 56, 100, 0.12);
+
+  --f-display: 'Fraunces', serif;
+  --f-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--f-body);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+
+.flag-accent {
+  display: inline-flex;
+  height: 4px;
+  width: 48px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.flag-accent span { flex: 1; }
+.flag-accent span:nth-child(1) { background: var(--italy-green); }
+.flag-accent span:nth-child(2) { background: var(--italy-white); }
+.flag-accent span:nth-child(3) { background: var(--italy-red); }
+
+/* NAV */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(21, 38, 74, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+}
+.nav.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
+  padding: 14px 48px;
+}
+.nav-logo {
+  font-family: var(--f-display);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--cream);
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: color 0.4s ease;
+  text-decoration: none;
+}
+.nav.scrolled .nav-logo { color: var(--navy); }
+.nav-logo::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: var(--italy-red);
+  border-radius: 50%;
+}
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.4s ease;
+}
+.nav.scrolled .nav-links a { color: var(--navy); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 1px;
+  background: var(--italy-red);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--italy-red);
+  color: var(--cream);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.nav-cta:hover { background: var(--cream); color: var(--navy); transform: translateY(-1px); }
+.nav.scrolled .nav-cta { background: var(--navy); }
+.nav.scrolled .nav-cta:hover { background: var(--italy-red); color: var(--cream); }
+
+/* HERO VIDEO */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--cream);
+  text-align: center;
+  padding: 140px 48px 100px;
+}
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  background: var(--navy-deep);
+}
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(180deg, rgba(21, 38, 74, 0.55) 0%, rgba(21, 38, 74, 0.4) 50%, rgba(21, 38, 74, 0.85) 100%),
+    radial-gradient(circle at 50% 50%, transparent 25%, rgba(21, 38, 74, 0.45) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--cream);
+  font-weight: 500;
+  margin-bottom: 36px;
+  padding: 10px 20px;
+  border: 1px solid rgba(246, 240, 228, 0.3);
+  border-radius: 100px;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: fadeUp 1s 0.2s forwards;
+}
+.hero-phrase {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(17px, 2vw, 24px);
+  color: var(--cream-deep);
+  max-width: 680px;
+  margin: 0 auto 28px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  opacity: 0;
+  animation: fadeUp 1s 0.35s forwards;
+}
+.hero h1 {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(52px, 8.5vw, 132px);
+  line-height: 0.95;
+  color: var(--cream);
+  letter-spacing: -0.02em;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 1s 0.5s forwards;
+}
+.hero h1 em { font-style: italic; font-weight: 400; color: var(--italy-red); }
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--cream-deep);
+  max-width: 540px;
+  margin: 0 auto 44px;
+  opacity: 0;
+  animation: fadeUp 1s 0.65s forwards;
+}
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1s 0.8s forwards;
+}
+.btn {
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+}
+.btn-primary { background: var(--italy-red); color: var(--cream); }
+.btn-primary:hover {
+  background: var(--cream);
+  color: var(--navy);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--cream);
+  border: 1px solid rgba(246, 240, 228, 0.5);
+}
+.btn-ghost:hover {
+  background: var(--cream);
+  color: var(--navy);
+  border-color: var(--cream);
+}
+.btn-arrow { width: 14px; height: 14px; transition: transform 0.3s; }
+.btn:hover .btn-arrow { transform: translateX(4px); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* MARQUEE */
+.marquee {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 20px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--navy-deep);
+  border-bottom: 1px solid var(--navy-deep);
+}
+.marquee-track {
+  display: flex;
+  gap: 80px;
+  white-space: nowrap;
+  animation: marquee 40s linear infinite;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 28px;
+  font-weight: 300;
+}
+.marquee-track span { display: inline-flex; align-items: center; gap: 80px; }
+.marquee-track .dot {
+  width: 8px; height: 8px;
+  background: var(--italy-red);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SECTIONS */
+section { padding: 120px 48px; position: relative; }
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--navy);
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+.section-label .num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--italy-red);
+}
+.section-title {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(40px, 5.5vw, 84px);
+  line-height: 1;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+.section-title em { font-style: italic; font-weight: 400; }
+
+/* STORY */
+.story {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+.story-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.story-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+.story-visual:hover img { transform: scale(1.05); }
+.story-visual-deco {
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border: 1px solid var(--italy-red);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.story-visual-deco::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--italy-red);
+  border-radius: 50%;
+  opacity: 0.4;
+}
+.story-text p {
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
+}
+.story-text p.lead {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--navy);
+  line-height: 1.4;
+  font-style: italic;
+}
+.story-quote {
+  margin-top: 40px;
+  padding-left: 24px;
+  border-left: 2px solid var(--italy-red);
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 20px;
+  color: var(--navy);
+  line-height: 1.5;
+}
+
+/* PROCESS */
+.process { background: var(--cream); }
+.process-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 80px;
+}
+.process-header .section-label { justify-content: center; }
+.process-header p {
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.process-step {
+  background: var(--white);
+  padding: 32px 24px;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.4s ease;
+  border: 1px solid transparent;
+}
+.process-step:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -20px rgba(31, 56, 100, 0.2);
+  border-color: var(--line);
+}
+.process-num {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 56px;
+  font-weight: 300;
+  color: var(--italy-red);
+  line-height: 1;
+  margin-bottom: 16px;
+  display: block;
+}
+.process-step h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.process-step p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: -16px;
+  width: 20px; height: 1px;
+  background: var(--navy);
+  opacity: 0.3;
+}
+.process-step:last-child::after { display: none; }
+
+/* CATALOG */
+.catalog { background: var(--white); }
+.catalog-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  margin-bottom: 80px;
+}
+.catalog-header p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 480px;
+}
+.catalog-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--line);
+}
+.catalog-tab {
+  padding: 14px 28px;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s;
+}
+.catalog-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; left: 0;
+  width: 100%; height: 2px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.catalog-tab.active { color: var(--navy); }
+.catalog-tab.active::after { transform: scaleX(1); }
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; animation: fadeUp 0.5s ease; }
+
+.catalog-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.catalog-visual {
+  position: sticky;
+  top: 120px;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--cream);
+}
+.catalog-visual img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.4s ease;
+}
+.catalog-group { margin-bottom: 48px; }
+.catalog-group:last-child { margin-bottom: 0; }
+.catalog-group h3 {
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.catalog-group h3::before {
+  content: '';
+  width: 40px; height: 2px;
+  background: var(--italy-red);
+}
+.catalog-group .subtitle {
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-left: 56px;
+}
+.catalog-items { list-style: none; display: flex; flex-direction: column; gap: 2px; }
+.catalog-item {
+  padding: 18px 22px;
+  background: var(--cream);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.catalog-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: var(--italy-red);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 10px;
+}
+.catalog-item:hover {
+  background: var(--navy);
+  transform: translateX(4px);
+}
+.catalog-item:hover::before { background: var(--italy-white); }
+.catalog-item-body { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.catalog-item-name {
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+.catalog-item:hover .catalog-item-name { color: var(--cream); }
+.catalog-item-desc {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.4;
+  transition: color 0.3s;
+}
+.catalog-item:hover .catalog-item-desc { color: var(--cream-deep); }
+
+/* LINEAS */
+.lineas { background: var(--navy); color: var(--cream); overflow: hidden; }
+.lineas .section-label { color: var(--cream-deep); }
+.lineas .section-label .num { color: var(--italy-red); }
+.lineas .section-title { color: var(--cream); }
+.lineas-intro {
+  max-width: 720px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+.lineas-intro .section-label { justify-content: center; }
+.lineas-intro p {
+  font-size: 18px;
+  color: var(--cream-deep);
+  line-height: 1.7;
+  margin-top: 20px;
+}
+.lineas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.linea-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(246, 240, 228, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+.linea-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  transform: translateY(-6px);
+}
+.linea-card-img { aspect-ratio: 16/10; overflow: hidden; }
+.linea-card-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 6s ease;
+}
+.linea-card:hover .linea-card-img img { transform: scale(1.08); }
+.linea-card-body { padding: 40px 36px; }
+.linea-tag {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--italy-red);
+  color: var(--cream);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.linea-card:nth-child(2) .linea-tag { background: var(--italy-green); }
+.linea-card h3 {
+  font-family: var(--f-display);
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.05;
+  margin-bottom: 16px;
+}
+.linea-card h3 em { font-style: italic; font-weight: 300; color: var(--cream-deep); }
+.linea-card p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--cream-deep);
+  margin-bottom: 16px;
+}
+.linea-card .recommended {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--cream);
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 240, 228, 0.15);
+  margin-top: 24px;
+}
+.lineas-footer {
+  text-align: center;
+  margin-top: 80px;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--cream-deep);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.lineas-footer strong { color: var(--cream); font-weight: 500; }
+
+/* GALLERY */
+.gallery { background: var(--cream); padding: 120px 48px; }
+.gallery-header { text-align: center; margin-bottom: 60px; }
+.gallery-header .section-label { justify-content: center; }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 200px;
+  gap: 12px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.gallery-item {
+  overflow: hidden;
+  border-radius: 6px;
+  position: relative;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(31, 56, 100, 0.3));
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.gallery-item:hover::after { opacity: 1; }
+.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-row: span 2; }
+.gallery-item:nth-child(6) { grid-column: span 2; }
+
+/* CONTACT */
+.contact {
+  background: var(--cream);
+  padding: 140px 48px;
+  position: relative;
+  overflow: hidden;
+}
+.contact::before {
+  content: 'Boni';
+  position: absolute;
+  bottom: -80px;
+  left: -20px;
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 420px;
+  color: rgba(31, 56, 100, 0.04);
+  line-height: 0.8;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+.contact-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.contact h2 {
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 1;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  margin-bottom: 32px;
+}
+.contact h2 em { font-style: italic; font-weight: 400; color: var(--italy-red); }
+.contact p {
+  font-size: 18px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  max-width: 440px;
+}
+.contact-methods { display: flex; flex-direction: column; gap: 20px; }
+.contact-card {
+  background: var(--white);
+  padding: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  text-decoration: none;
+  color: var(--navy);
+  transition: all 0.3s ease;
+  border: 1px solid var(--line);
+}
+.contact-card:hover {
+  background: var(--navy);
+  color: var(--cream);
+  transform: translateX(8px);
+  border-color: var(--navy);
+}
+.contact-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.contact-card:hover .contact-card-icon { background: var(--italy-red); }
+.contact-card-icon svg { width: 20px; height: 20px; stroke: var(--navy); transition: stroke 0.3s; }
+.contact-card:hover .contact-card-icon svg { stroke: var(--cream); }
+.contact-card-label {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+  transition: color 0.3s;
+}
+.contact-card:hover .contact-card-label { color: var(--cream-deep); }
+.contact-card-value {
+  font-family: var(--f-display);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--navy-deep);
+  color: var(--cream);
+  padding: 80px 48px 40px;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+  padding-bottom: 60px;
+  border-bottom: 1px solid rgba(246, 240, 228, 0.1);
+}
+.footer-brand h3 {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 56px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.footer-brand p {
+  color: var(--cream-deep);
+  max-width: 360px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.footer-parent {
+  font-size: 13px;
+  color: var(--cream-deep);
+  padding-top: 20px;
+  border-top: 1px solid rgba(246, 240, 228, 0.1);
+  display: inline-block;
+  font-style: italic;
+  font-family: var(--f-display);
+}
+.footer-parent strong { color: var(--cream); font-style: normal; font-family: var(--f-body); font-weight: 500; }
+.footer h4 {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.footer ul { list-style: none; }
+.footer ul li { margin-bottom: 10px; }
+.footer ul a {
+  color: var(--cream-deep);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+.footer ul a:hover { color: var(--italy-red); }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--cream-deep);
+  letter-spacing: 0.05em;
+}
+
+/* HAMBURGER BUTTON */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 200;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--cream);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  transform-origin: center;
+}
+.nav.scrolled .nav-toggle span { background: var(--navy); }
+body.menu-open .nav-toggle span { background: var(--cream); }
+body.menu-open .nav-toggle span:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+body.menu-open .nav-toggle span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+body.menu-open .nav-toggle span:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: var(--navy);
+  color: var(--cream);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -30%;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(205, 33, 42, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+body.menu-open .mobile-menu {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-menu-inner {
+  position: relative;
+  padding: 100px 28px 40px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.mobile-menu ul {
+  list-style: none;
+  margin-bottom: 32px;
+}
+.mobile-menu ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+body.menu-open .mobile-menu ul li {
+  opacity: 1;
+  transform: translateY(0);
+}
+body.menu-open .mobile-menu ul li:nth-child(1) { transition-delay: 0.1s; }
+body.menu-open .mobile-menu ul li:nth-child(2) { transition-delay: 0.17s; }
+body.menu-open .mobile-menu ul li:nth-child(3) { transition-delay: 0.24s; }
+body.menu-open .mobile-menu ul li:nth-child(4) { transition-delay: 0.31s; }
+body.menu-open .mobile-menu ul li:nth-child(5) { transition-delay: 0.38s; }
+
+.mobile-menu ul a {
+  display: block;
+  padding: 18px 0;
+  font-family: var(--f-display);
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 1.1;
+  color: var(--cream);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  border-bottom: 1px solid rgba(246, 240, 228, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0;
+}
+.mobile-menu ul a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left;
+  width: 24px;
+  height: 2px;
+  background: var(--italy-red);
+  transition: transform 0.3s ease;
+}
+.mobile-menu ul a:active::before,
+.mobile-menu ul a:focus::before {
+  transform: translateY(-50%) scaleX(1);
+}
+.mobile-menu ul a:active,
+.mobile-menu ul a:focus {
+  padding-left: 36px;
+  color: var(--italy-red);
+}
+.mobile-menu-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 32px;
+  background: var(--italy-red);
+  color: var(--cream);
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-radius: 100px;
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease 0.45s;
+  align-self: flex-start;
+}
+body.menu-open .mobile-menu-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-menu-footer {
+  margin-top: auto;
+  padding-top: 32px;
+  border-top: 1px solid rgba(246, 240, 228, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.55s;
+}
+body.menu-open .mobile-menu-footer { opacity: 1; }
+.mobile-menu-footer p {
+  font-size: 13px;
+  color: var(--cream-deep);
+  line-height: 1.7;
+  font-style: italic;
+  font-family: var(--f-display);
+}
+
+body.menu-open { overflow: hidden; }
+
+/* RESPONSIVE — TABLET */
+@media (max-width: 1024px) {
+  .nav { padding: 18px 32px; }
+  .nav-links { gap: 24px; }
+  .nav-links a { font-size: 12px; }
+  section { padding: 100px 32px; }
+  .process-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .process-step::after { display: none; }
+  .catalog-layout { gap: 50px; }
+  .story { gap: 60px; }
+}
+
+/* RESPONSIVE — MOBILE */
+@media (max-width: 768px) {
+  /* Nav */
+  .nav { padding: 14px 20px; }
+  .nav.scrolled { padding: 10px 20px; }
+  .nav-logo { font-size: 20px; }
+  .nav-logo::before { width: 6px; height: 6px; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Sections — tighter padding */
+  section { padding: 72px 20px; }
+
+  /* HERO */
+  .hero {
+    padding: 110px 20px 70px;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+  .hero-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    padding: 8px 14px;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .hero-phrase {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+    padding: 0 8px;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 12vw, 64px);
+    line-height: 1;
+    margin-bottom: 26px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+    padding: 0 4px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 15px 24px;
+    font-size: 12px;
+  }
+
+  /* Marquee */
+  .marquee { padding: 14px 0; }
+  .marquee-track { font-size: 18px; gap: 50px; }
+  .marquee-track span { gap: 50px; }
+
+  /* Section titles */
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(34px, 9vw, 54px);
+    line-height: 1.05;
+    margin-bottom: 20px;
+  }
+
+  /* Story */
+  .story {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .story-visual { aspect-ratio: 3/4; }
+  .story-visual-deco { width: 100px; height: 100px; bottom: -30px; right: -20px; }
+  .story-text p { font-size: 16px; line-height: 1.65; margin-bottom: 18px; }
+  .story-text p.lead { font-size: 20px; line-height: 1.4; }
+  .story-quote {
+    font-size: 17px;
+    margin-top: 28px;
+    padding-left: 18px;
+  }
+
+  /* Process */
+  .process-header { margin-bottom: 48px; }
+  .process-header p { font-size: 15px; }
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 440px;
+  }
+  .process-step { padding: 24px 22px; }
+  .process-step::after { display: none; }
+  .process-num { font-size: 44px; margin-bottom: 12px; }
+  .process-step h3 { font-size: 18px; }
+  .process-step p { font-size: 13px; }
+
+  /* Catalog */
+  .catalog-header {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .catalog-header p { font-size: 15px; }
+  .catalog-tabs {
+    gap: 0;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .catalog-tabs::-webkit-scrollbar { display: none; }
+  .catalog-tab {
+    padding: 12px 18px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .catalog-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .catalog-visual {
+    position: relative;
+    top: 0;
+    aspect-ratio: 4/3;
+  }
+  .catalog-group { margin-bottom: 32px; }
+  .catalog-group h3 {
+    font-size: 22px;
+    gap: 12px;
+    margin-bottom: 6px;
+  }
+  .catalog-group h3::before { width: 28px; }
+  .catalog-group .subtitle {
+    padding-left: 40px;
+    font-size: 11px;
+    margin-bottom: 14px;
+  }
+  .catalog-item { padding: 14px 16px; gap: 10px; }
+  .catalog-item::before { margin-top: 8px; }
+  .catalog-item-name { font-size: 14px; }
+  .catalog-item-desc { font-size: 12px; }
+
+  /* Lineas */
+  .lineas-intro { margin-bottom: 50px; }
+  .lineas-intro p { font-size: 15px; }
+  .lineas-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .linea-card-body { padding: 28px 24px; }
+  .linea-tag { font-size: 10px; padding: 5px 12px; margin-bottom: 16px; }
+  .linea-card h3 { font-size: 32px; margin-bottom: 12px; }
+  .linea-card p { font-size: 15px; }
+  .linea-card .recommended { font-size: 14px; padding-top: 16px; margin-top: 18px; }
+  .lineas-footer {
+    margin-top: 50px;
+    font-size: 18px;
+  }
+
+  /* Gallery */
+  .gallery { padding: 72px 16px; }
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 140px;
+    gap: 8px;
+  }
+  .gallery-item:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+  .gallery-item:nth-child(4) { grid-row: span 1; }
+  .gallery-item:nth-child(6) { grid-column: span 2; }
+
+  /* Contact */
+  .contact { padding: 80px 20px; }
+  .contact::before { font-size: 180px; bottom: -40px; }
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .contact h2 { font-size: clamp(36px, 10vw, 56px); margin-bottom: 20px; }
+  .contact p { font-size: 15px; margin-bottom: 24px; }
+  .contact-card { padding: 20px 18px; gap: 16px; }
+  .contact-card-icon { width: 40px; height: 40px; }
+  .contact-card-icon svg { width: 17px; height: 17px; }
+  .contact-card-label { font-size: 10px; }
+  .contact-card-value { font-size: 16px; }
+
+  /* Footer */
+  .footer { padding: 60px 20px 32px; }
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  .footer-brand h3 { font-size: 44px; }
+  .footer-brand p { font-size: 14px; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    font-size: 11px;
+  }
+
+  /* Mobile menu font sizing */
+  .mobile-menu-inner { padding: 90px 24px 32px; }
+  .mobile-menu ul a { font-size: 34px; padding: 16px 0; }
+  .mobile-menu-cta { padding: 16px 28px; font-size: 12px; }
+}
+
+/* RESPONSIVE — SMALL MOBILE */
+@media (max-width: 380px) {
+  .hero h1 { font-size: 42px; }
+  .hero-phrase { font-size: 14px; }
+  .hero-sub { font-size: 14px; }
+  .section-title { font-size: 30px; }
+  .mobile-menu ul a { font-size: 28px; padding: 14px 0; }
+  .linea-card h3 { font-size: 28px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Boni Pasta</a>
+  <ul class="nav-links">
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#lineas">Líneas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="#contacto" class="nav-cta">Hacé tu pedido</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <ul>
+      <li><a href="#historia">Historia</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#lineas">Líneas</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="mobile-menu-cta">Hacé tu pedido</a>
+    <div class="mobile-menu-footer">
+      <span class="flag-accent"><span></span><span></span><span></span></span>
+      <p>Ing. Olmos 338, Alta Gracia<br>03547 561052 · @bonipasta</p>
+    </div>
+  </div>
+</div>
+
+<!-- HERO CON VIDEO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/060%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta">
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="flag-accent"><span></span><span></span><span></span></span>
+      Artesanal · Alta Gracia · Córdoba
+    </div>
+
+    <p class="hero-phrase">
+      Detrás de cada pasta hay manos, tiempo y tradición. Ese es nuestro sabor.
+    </p>
+
+    <h1>
+      La <em>buona pasta</em><br>
+      di Alta Gracia.
+    </h1>
+
+    <p class="hero-sub">
+      Pastas frescas y salsas hechas a mano, con la tradición italiana como punto de partida y procesos cuidados que honran cada detalle.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-primary">
+        Ver catálogo
+        <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="#lineas" class="btn btn-ghost">Conocer las líneas</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>
+      Pastas frescas <span class="dot"></span>
+      Hechas a mano <span class="dot"></span>
+      Tradición italiana <span class="dot"></span>
+      Ultracongelado profesional <span class="dot"></span>
+      Il Pastificio <span class="dot"></span>
+      Alta Gracia <span class="dot"></span>
+    </span>
+    <span>
+      Pastas frescas <span class="dot"></span>
+      Hechas a mano <span class="dot"></span>
+      Tradición italiana <span class="dot"></span>
+      Ultracongelado profesional <span class="dot"></span>
+      Il Pastificio <span class="dot"></span>
+      Alta Gracia <span class="dot"></span>
+    </span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="story" id="historia">
+  <div class="story-visual">
+    <img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/031%20-%20Boni%20Pasta%20(HD).jpg" alt="Elaboración artesanal de pastas">
+    <div class="story-visual-deco"></div>
+  </div>
+  <div class="story-text">
+    <div class="section-label">
+      <span class="num">01 —</span>
+      Nuestra esencia
+    </div>
+    <h2 class="section-title">Pastas frescas, <em>hechas a mano.</em></h2>
+    <p class="lead">
+      Nos especializamos en la elaboración de pastas frescas y salsas que combinan lo mejor de la tradición italiana con la innovación en cada proceso.
+    </p>
+    <p>
+      Creemos que una buena pasta nace de los mejores ingredientes, procesos cuidados y un profundo respeto por la calidad artesanal. Cada pieza se trabaja con tiempo, intención y el mismo amor por el detalle que encontrarías en la cocina de una nonna.
+    </p>
+    <div class="story-quote">
+      "La buona pasta di Alta Gracia<br>comienza acá."
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="proceso">
+  <div class="process-header">
+    <div class="section-label">
+      <span class="num">02 —</span>
+      El proceso
+    </div>
+    <h2 class="section-title">Cinco pasos, <em>una excelencia.</em></h2>
+    <p>
+      Cada pasta que llega a tu mesa recorre un camino pensado para preservar la frescura, el sabor y la calidad artesanal desde la materia prima hasta tu cocina.
+    </p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <span class="process-num">01</span>
+      <h3>Gestión de la materia prima</h3>
+      <p>Selección cuidada de ingredientes: harinas, huevos frescos, vegetales y quesos de primera calidad.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">02</span>
+      <h3>Elaboración de rellenos</h3>
+      <p>Rellenos preparados a mano, con recetas propias y el tiempo que cada combinación necesita.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">03</span>
+      <h3>Amasado</h3>
+      <p>Masa trabajada con la textura justa para lograr la elasticidad y la terneza de la pasta italiana.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">04</span>
+      <h3>Conservación profesional</h3>
+      <p>Abatimiento y envasado al vacío para preservar sabor, nutrientes y frescura sin resignar calidad.</p>
+    </div>
+    <div class="process-step">
+      <span class="process-num">05</span>
+      <h3>Distribución y cadena de frío</h3>
+      <p>Logística controlada que garantiza que cada producto llegue en condiciones óptimas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog" id="catalogo">
+  <div class="catalog-header">
+    <div>
+      <div class="section-label">
+        <span class="num">03 —</span>
+        Catálogo
+      </div>
+      <h2 class="section-title">El <em>sabor</em> de Italia, en tu mesa.</h2>
+    </div>
+    <p>
+      Descubrí nuestra variedad de pastas frescas, rellenas y salsas. Cada receta pensada para que disfrutes la experiencia completa de una buena comida italiana.
+    </p>
+  </div>
+
+  <div class="catalog-tabs" role="tablist">
+    <button class="catalog-tab active" data-tab="frescas">Pastas frescas</button>
+    <button class="catalog-tab" data-tab="rellenas">Pastas rellenas</button>
+    <button class="catalog-tab" data-tab="salsas">Salsas</button>
+  </div>
+
+  <div class="catalog-layout">
+    <div class="catalog-visual">
+      <img id="catalog-img" src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/199%20-%20Boni%20Pasta%20(HD).jpg" alt="Catálogo Boni Pasta">
+    </div>
+
+    <div class="tab-content">
+
+      <!-- PASTAS FRESCAS -->
+      <div class="tab-panel active" id="panel-frescas">
+        <div class="catalog-group">
+          <h3>Pasta fresca</h3>
+          <div class="subtitle">500 g · Rinde 3 porciones</div>
+          <ul class="catalog-items">
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Spaghettis Tres Vegetales</div>
+                <div class="catalog-item-desc">Morrón, espinaca y huevo</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Tallarines de Espinaca</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Tallarines al Huevo</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Fettuccine al Limón</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Tallarines al Morrón</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PASTAS RELLENAS -->
+      <div class="tab-panel" id="panel-rellenas">
+        <div class="catalog-group">
+          <h3>Ravioles</h3>
+          <div class="subtitle">48 unidades · Rinde 3 porciones</div>
+          <ul class="catalog-items">
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Ravioles de Verdura y Ricota</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catalog-group">
+          <h3>Panzottis</h3>
+          <div class="subtitle">16 unidades · Rinde 2 porciones</div>
+          <ul class="catalog-items">
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Panzottis de Cabutia y Reggianito</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Panzottis de Osobuco Ahumado y Hongos</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="catalog-group">
+          <h3>Sorrentinos</h3>
+          <div class="subtitle">24 unidades · Rinde 3 porciones</div>
+          <ul class="catalog-items">
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Sorrentinos de Trucha</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Sorrentinos de Caprese</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Sorrentinos de Espinaca y Pollo</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Sorrentinos de Jamón, Mozzarella y Nuez</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- SALSAS -->
+      <div class="tab-panel" id="panel-salsas">
+        <div class="catalog-group">
+          <h3>Salsas</h3>
+          <div class="subtitle">Para acompañar las pastas</div>
+          <ul class="catalog-items">
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Bechamel</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Bolognesa</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Cuatro Quesos</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Filetto</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">A las Finas Hierbas</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Frutos de Mar</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">De Hongos</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Pesto de Nuez</div>
+              </div>
+            </li>
+            <li class="catalog-item">
+              <div class="catalog-item-body">
+                <div class="catalog-item-name">Puttanesca</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- LINEAS -->
+<section class="lineas" id="lineas">
+  <div class="lineas-intro">
+    <div class="section-label">
+      <span class="num">04 —</span>
+      Dos líneas
+    </div>
+    <h2 class="section-title">Dos líneas, <em>una misma excelencia.</em></h2>
+    <p>
+      Ambas líneas mantienen la misma receta, el mismo amor por el detalle y la misma calidad Boni Pasta. Elegí la que mejor se adapte a tu ritmo.
+    </p>
+  </div>
+
+  <div class="lineas-grid">
+    <div class="linea-card">
+      <div class="linea-card-img">
+        <img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/187%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta Pronta">
+      </div>
+      <div class="linea-card-body">
+        <span class="linea-tag">Pronta</span>
+        <h3>Boni Pasta<br><em>Pronta</em></h3>
+        <p>
+          Pasta ya cocida, ultracongelada y lista para regenerar. Ideal para resolver rápido sin resignar calidad.
+        </p>
+        <div class="recommended">
+          Recomendada para cocinas profesionales, eventos y servicio ágil.
+        </div>
+      </div>
+    </div>
+
+    <div class="linea-card">
+      <div class="linea-card-img">
+        <img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/268%20-%20Boni%20Pasta%20(HD)%20(3).jpg" alt="Boni Pasta Da Cucinare">
+      </div>
+      <div class="linea-card-body">
+        <span class="linea-tag">Da Cucinare</span>
+        <h3>Boni Pasta<br><em>Da Cucinare</em></h3>
+        <p>
+          Pasta cruda ultracongelada. Cocinala vos, como en casa, con la frescura y el ritual intactos.
+        </p>
+        <div class="recommended">
+          Perfecta para quienes disfrutan el arte de cocinar en casa.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lineas-footer">
+    La misma receta, el mismo amor por el detalle,<br>
+    la misma calidad <strong>Boni Pasta.</strong>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="gallery-header">
+    <div class="section-label" style="justify-content:center;">
+      <span class="num">05 —</span>
+      Galería
+    </div>
+    <h2 class="section-title">El <em>ritual</em> detrás de cada pasta.</h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/043%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/053%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/092%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/085%20-%20Boni%20Pasta%20(HD)%20(1).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/115%20-%20Boni%20Pasta%20(HD)%20(1).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/159%20-%20Boni%20Pasta%20(HD).jpg" alt="Boni Pasta"></div>
+    <div class="gallery-item"><img src="https://raw.githubusercontent.com/candelaboni6/bonipasta/main/247%20-%20Boni%20Pasta%20(HD)%20(1).jpg" alt="Boni Pasta"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contacto">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <div class="section-label">
+        <span class="num">06 —</span>
+        Contacto
+      </div>
+      <h2>Hacé tu <em>pedido</em> o visitanos.</h2>
+      <p>
+        Escribinos por WhatsApp, pasá por el local o seguinos en redes. Estamos en Alta Gracia con la misma vocación de siempre: buena pasta, buena mesa.
+      </p>
+      <span class="flag-accent"><span></span><span></span><span></span></span>
+    </div>
+
+    <div class="contact-methods">
+      <a href="https://wa.me/5493547561052" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card-label">WhatsApp</div>
+          <div class="contact-card-value">03547 561052</div>
+        </div>
+      </a>
+
+      <a href="https://maps.google.com/?q=Ing.+Olmos+338+Alta+Gracia" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card-label">Visitanos</div>
+          <div class="contact-card-value">Ing. Olmos 338, Alta Gracia</div>
+        </div>
+      </a>
+
+      <a href="https://instagram.com/bonipasta" class="contact-card" target="_blank" rel="noopener">
+        <div class="contact-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="contact-card-label">Instagram</div>
+          <div class="contact-card-value">@bonipasta</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h3>Boni Pasta</h3>
+      <p>
+        Calidad artesanal en Alta Gracia. Pastas frescas, salsas y dos líneas ultracongeladas para cocinas profesionales y hogares que valoran la buena comida.
+      </p>
+      <div class="footer-parent">
+        Una unidad de negocio de <strong>Natural Chef</strong>
+      </div>
+    </div>
+
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#historia">Historia</a></li>
+        <li><a href="#proceso">Proceso</a></li>
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#lineas">Líneas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.me/5493547561052">03547 561052</a></li>
+        <li><a href="https://maps.google.com/?q=Ing.+Olmos+338+Alta+Gracia">Ing. Olmos 338</a></li>
+        <li><a href="https://instagram.com/bonipasta">@bonipasta</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2026 Boni Pasta · Il Pastificio · Alta Gracia, Córdoba</div>
+    <div class="flag-accent"><span></span><span></span><span></span></div>
+  </div>
+</footer>
+
+<script>
+// Imagen por tab del catálogo
+const tabImages = {
+  frescas: 'https://raw.githubusercontent.com/candelaboni6/bonipasta/main/199%20-%20Boni%20Pasta%20(HD).jpg',
+  rellenas: 'https://raw.githubusercontent.com/candelaboni6/bonipasta/main/092%20-%20Boni%20Pasta%20(HD).jpg',
+  salsas: 'https://raw.githubusercontent.com/candelaboni6/bonipasta/main/Gemini_Generated_Image_7pn1eq7pn1eq7pn1.png'
+};
+
+const tabs = document.querySelectorAll('.catalog-tab');
+const panels = document.querySelectorAll('.tab-panel');
+const catalogImg = document.getElementById('catalog-img');
+
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    panels.forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + target).classList.add('active');
+    catalogImg.style.opacity = '0';
+    setTimeout(() => {
+      catalogImg.src = tabImages[target];
+      catalogImg.style.opacity = '1';
+    }, 300);
+  });
+});
+
+// Scroll effect for nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Mobile hamburger menu
+const navToggle = document.getElementById('navToggle');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+function closeMenu() {
+  document.body.classList.remove('menu-open');
+  navToggle.setAttribute('aria-label', 'Abrir menú');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+}
+
+function openMenu() {
+  document.body.classList.add('menu-open');
+  navToggle.setAttribute('aria-label', 'Cerrar menú');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+}
+
+navToggle.addEventListener('click', () => {
+  if (document.body.classList.contains('menu-open')) closeMenu();
+  else openMenu();
+});
+
+// Close menu when clicking a link
+mobileMenuLinks.forEach(link => {
+  link.addEventListener('click', closeMenu);
+});
+
+// Close menu on escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.body.classList.contains('menu-open')) closeMenu();
+});
+</script>
+
+</body>
+</html>
